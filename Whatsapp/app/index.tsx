@@ -1,12 +1,14 @@
-import { Text, View, TouchableOpacity, StyleSheet, StatusBar } from "react-native";
-import Colors from "@/constants/Colors";
 import WelcomeIllustration from "@/components/WelcomeIllustration";
+import Colors from "@/constants/Colors";
+import { StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Link } from "expo-router";
 
 export default function WelcomeScreen() {
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
-      
+
       {/* WhatsApp Logo Circle */}
       <View style={styles.logoContainer}>
         <WelcomeIllustration />
@@ -14,21 +16,30 @@ export default function WelcomeScreen() {
 
       {/* Welcome Text */}
       <Text style={styles.title}>Welcome to{'\n'}WhatsApp</Text>
-      
+
       {/* Privacy Policy Text */}
       <View style={styles.privacyContainer}>
         <Text style={styles.privacyText}>
           Read our{" "}
           <Text style={styles.linkText}>Privacy Policy</Text>
-          . Tap "Agree &{'\n'}Continue" to accept the{" "}
+          . Tap &quot;Agree &amp;{'\n'}Continue&quot; to accept the{" "}
           <Text style={styles.linkText}>Terms of{'\n'}Service</Text>.
         </Text>
       </View>
 
-      {/* Agree & Continue Button */}
-      <TouchableOpacity style={styles.button} activeOpacity={0.8}>
-        <Text style={styles.buttonText}>Agree & Continue</Text>
-      </TouchableOpacity>
+      {/* Accept & Sign Up Button */}
+      <Link href="/(auth)/sign-up" asChild>
+        <TouchableOpacity style={styles.button} activeOpacity={0.8}>
+          <Text style={styles.buttonText}>Accept & Sign Up</Text>
+        </TouchableOpacity>
+      </Link>
+
+      {/* Sign In Link */}
+      <Link href="/(auth)/sign-in" asChild>
+        <TouchableOpacity style={styles.signInLink}>
+          <Text style={styles.signInText}>Sign in</Text>
+        </TouchableOpacity>
+      </Link>
     </View>
   );
 }
@@ -53,7 +64,7 @@ const styles = StyleSheet.create({
     lineHeight: 42,
   },
   privacyContainer: {
-    marginBottom: 100,
+    marginBottom: 40,
     paddingHorizontal: 10,
   },
   privacyText: {
@@ -74,7 +85,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 8,
     },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -82,6 +93,16 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
+    fontSize: 16,
+    fontWeight: "500",
+    textAlign: "center",
+  },
+  signInLink: {
+    marginTop: 20,
+    paddingVertical: 12,
+  },
+  signInText: {
+    color: "#2196F3",
     fontSize: 16,
     fontWeight: "500",
     textAlign: "center",
