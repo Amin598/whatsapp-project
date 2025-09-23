@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shopify Integration App
+
+A Next.js application that enables easy integration with Shopify stores through OAuth authentication and API access.
+
+## Features
+
+- **Shopify OAuth Integration**: Secure authentication flow with Shopify stores
+- **Store Connection**: Simple form to connect any Shopify store by domain
+- **Dashboard Interface**: User-friendly dashboard for managing Shopify integration
+- **Supabase Integration**: Backend storage and authentication management
+- **Responsive Design**: Mobile-friendly interface built with Tailwind CSS
+
+## Current Implementation
+
+The app currently includes:
+
+- **Landing Page** (`/`): Clean interface for entering Shopify store domain
+- **Authentication Flow**: OAuth start endpoint (`/api/auth/start`) and callback handling
+- **Dashboard**: Post-authentication dashboard for store management
+- **Error Handling**: Dedicated error and success pages
+- **Utilities**: Helper functions for Shopify API integration
+
+## Tech Stack
+
+- **Framework**: Next.js 15.5.3 with App Router
+- **Styling**: Tailwind CSS
+- **Backend**: Supabase for authentication and data storage
+- **Authentication**: Shopify OAuth 2.0
+- **Language**: TypeScript
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables (Shopify API keys, Supabase credentials)
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Structure
+
+```
+src/app/
+├── api/auth/           # Authentication endpoints
+│   ├── start/          # OAuth initiation
+│   └── callback/       # OAuth callback handling
+├── dashboard/          # Post-auth dashboard
+├── error/              # Error handling pages
+├── success/            # Success confirmation pages
+└── utils/              # Helper utilities
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Build**: `npm run build`
+- **Lint**: `npm run lint`
+- **Start**: `npm run start` (production)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Next Steps
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Complete Shopify API integration
+- Add product management features
+- Implement webhook handling
+- Add comprehensive error handling
+- Deploy to production environment

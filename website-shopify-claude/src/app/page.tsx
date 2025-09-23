@@ -7,7 +7,7 @@ export default function Home() {
           <p className="mt-2 text-gray-600">Enter your Shopify store domain to get started</p>
         </div>
 
-        <form className="mt-8 space-y-6">
+        <form action="/api/auth/start" method="GET" className="mt-8 space-y-6">
           <div>
             <label htmlFor="shop-domain" className="block text-sm font-medium text-gray-700">
               Your Shopify Store
